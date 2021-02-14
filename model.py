@@ -25,22 +25,11 @@ def make_critic():
     x = Conv2D(64, 4, 2, activation = 'relu')(x)
     x = Conv2D(64, 3, 1, activation = 'relu')(x)
     x = Flatten()(x)
-    x = Concatenate()([x, length_input])
-    y = Concatenate()([x, action_input])
-
+    x = Concatenate()([x, length_input, action_input])
     x = Dense(512, activation = 'relu')(x)
-    y = Dense(512, activation = 'relu')(y)
-
-    V = Dense(128, activation = 'relu')(x)
-    V = Dense(128, activation = 'relu')(V)
-    V = Dense(1)(V)
-
-    Q = Dense(128, activation = 'relu')(y)
-    Q = Dense(128, activation = 'relu')(Q)
-    Q = Dense(1)(Q)
-
-    A = Q - V
-    Q = Q + A
+    x = Dense(128, activation = 'relu')(x)
+    x = Dense(128, activation = 'relu')(x)
+    Q = Dense(1)(x)
 
     critic = Model([observation_input, length_input, action_input], Q)
     return critic
