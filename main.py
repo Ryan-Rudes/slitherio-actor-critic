@@ -3,7 +3,7 @@ from rl.memory import SequentialMemory
 from rl.random import OrnsteinUhlenbeckProcess
 
 import wandb
-wandb.init(project = 'slitherio', entity = 'ryan-rudes')
+wandb.init(project = input("Enter your wandb project name: "), entity = input("Enter your wandb entity: "))
 
 from tensorflow.keras.optimizers import Adam
 import tensorflow as tf
