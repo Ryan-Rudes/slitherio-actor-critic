@@ -12,7 +12,7 @@ def make_actor():
     x = Flatten()(x)
     x = Concatenate()([x, length_input])
     x = Dense(512, activation = 'relu')(x)
-    action = Dense(2, activation = 'sigmoid', kernel_initializer = last_init)(x)
+    action = Dense(2, activation = 'tanh', kernel_initializer = last_init)(x)
     actor = Model([observation_input, length_input], action)
     return actor
 
