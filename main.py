@@ -3,7 +3,7 @@ from rl.memory import SequentialMemory
 from rl.random import OrnsteinUhlenbeckProcess
 
 import wandb
-wandb.init(project = input("Enter your wandb project name: "), entity = input("Enter your wandb entity: "))
+wandb.init(project = 'slitherio', entity = 'ryan-rudes')
 
 from tensorflow.keras.optimizers import Adam
 import tensorflow as tf
@@ -72,6 +72,7 @@ updates = 0
 episodes = 0
 highscore = 0
 longest_duration = 0
+angle = 0
 
 while True:
     observation = preprocess(env.reset())
@@ -83,7 +84,12 @@ while True:
     timestep = 0
     while not terminal:
         action = act(observation, length, noise_generator)
-        next_observation, reward, terminal, info = env.step(*action)
+        delta_angle, acceleration = action
+        angle += delta_angle
+        if abs(angle) > 1:
+            angle %= 1
+        acceleration = int(acceleration > 0)
+        next_observation, reward, terminal, info = env.step(angle, acceleration)
         next_observation = preprocess(next_observation)
         next_length = env.score
         replay_memory.store(observation, length, action, reward, next_observation, next_length)
