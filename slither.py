@@ -77,8 +77,7 @@ class Slitherio(gym.Env):
     def observe(self):
         im = mss.mss().grab(self.monitor)
         im = np.array(im)[:, :, :3]
-        # im = np.reshape(im, (290, 500, 3))
-        im = self.preprocess(im)
+        # im = self.preprocess(im)
         self.last_observation = im
         return im
 
