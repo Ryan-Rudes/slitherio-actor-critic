@@ -1,6 +1,8 @@
 # Slither.io Actor-Critic Agent
 
-* [**YouTube demo of the agent in action**](https://www.youtube.com/watch?v=fhAlw9w-MNk)
+https://user-images.githubusercontent.com/18452581/116118383-3aaccc00-a68b-11eb-8555-905a8b93b7ef.mp4
+
+[**Watch it on YouTube**](https://www.youtube.com/watch?v=fhAlw9w-MNk)
 
 Turn off any settings that would start your screensaver or turn off your display while running this code. The script needs the display to be on in order to take continuous screenshots of the game state.
 
