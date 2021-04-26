@@ -1,6 +1,7 @@
 # Slither.io Actor-Critic Agent
 
 https://user-images.githubusercontent.com/18452581/116118383-3aaccc00-a68b-11eb-8555-905a8b93b7ef.mp4
+https://user-images.githubusercontent.com/18452581/116118903-d0485b80-a68b-11eb-9089-c43440ddd0e3.mp4
 
 [**Watch it on YouTube**](https://www.youtube.com/watch?v=fhAlw9w-MNk)
 
